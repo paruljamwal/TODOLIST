@@ -9,10 +9,10 @@ const router=express.Router();
 
 router.post("", 
 
-body(firstName).not().isEmpty().withMessage("please enter your name").bail(),
-body(lasttName).not().isEmpty().withMessage("please enter your lastname").bail(),
-body(email).not().isEmpty().withMessage("please enter your email").bail(),
-body(password).not().isEmpty().withMessage("please enter your password").bail().custom((value)=>{
+body("firstName").not().isEmpty().withMessage("please enter your name").bail(),
+body("lasttName").not().isEmpty().withMessage("please enter your lastname").bail(),
+body("email").not().isEmpty().withMessage("please enter your email").bail(),
+body("password").not().isEmpty().withMessage("please enter your password").bail().custom((value)=>{
     const pass=/^(?=.*\d)(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{7,15}$/;
     if(!pass.match(req)){
         throw new erro("Somthing went worng");
